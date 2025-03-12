@@ -1,30 +1,26 @@
+const $ = document.querySelector.bind(document)
+const $$ = document.querySelectorAll.bind(document)
 
-//document.querySelector() -> trả về 1 phần tử
-//document.querySelectorAll() -> trả về 1 danh sách phần tử
+const modal = $('#modal')
 
-// const result = document.querySelector('.title')
-// console.log(result);
+$('#open-modal').onclick = function(){
+  modal.classList.add('show')  
+}
 
-// const result = document.querySelectorAll('.title')
-// console.log(result);
+$('#modal-close').onclick = function(){
+    modal.classList.remove('show') 
+}
 
-//innerText
-// const h1 = document.querySelector('#heading')
+modal.onclick = function(e){
+if(e.target === $("#modal")){
+    modal.classList.remove('show') 
+}
 
-// console.log(h1.innerText);
+};
 
-// const output = document.querySelector('#output')
-// const courses = ['HTML', 'CSS', 'Javascript']
-
-// const result = courses.map((course) =>{
-//     return `<li>${course}</li>`
-// })
-// const html = `<ul>${result.join('\n')}</ul>`
-
-// output.innerHTML = html
-
-//outerHTML
-// const parent = document.querySelector('#parent')
-// console.log(parent.outerHTML);
-
-//textContent
+document.addEventListener('keydown',function(e){
+    if(e.key === 'Escape'){
+        modal.classList.remove('show') 
+    }
+    
+})
